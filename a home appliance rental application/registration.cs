@@ -16,5 +16,19 @@ namespace a_home_appliance_rental_application
         {
             InitializeComponent();
         }
+
+        private void registration_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private Boolean passwordValidation()
+        {
+            // if ()
+            // {
+            //     return true;
+            // }
+            return false;
+        }
     }
 }

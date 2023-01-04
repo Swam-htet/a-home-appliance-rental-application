@@ -160,6 +160,7 @@
             this.Controls.Add(this.registerHeader);
             this.Name = "registration";
             this.Text = "Registration";
+            this.Load += new System.EventHandler(this.registration_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

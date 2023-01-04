@@ -33,23 +33,11 @@ namespace a_home_appliance_rental_application
         {
             // check account number with parameter a 
             // if false
-            if (name.ToLower().Equals(u.ToLower()) == false)
-            {
-                // end function
-                return false;
-            }
-
-            // else check pin with parameter p
-            if (password.ToLower().Equals(p.ToLower()))
+           if (u == name && p == password)
             {
                 return true;
             }
-
-            // if pin is wrong
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
     }
