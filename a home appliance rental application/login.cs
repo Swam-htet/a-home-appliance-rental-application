@@ -35,7 +35,7 @@ namespace a_home_appliance_rental_application
             
 
             // add normal user to the list
-            addNormalUserToList("Soe Soe", "111111", "soesoe234@gmail.com", "09123456789");
+            addNormalUserToList("alphar", "111111", "soesoe234@gmail.com", "09123456789");
 
         }
 
@@ -73,14 +73,8 @@ namespace a_home_appliance_rental_application
             string u = inputUsername.Text;
             string p = inputPassword.Text;
 
-            // no input condition
-            if (u == "" || p == "")
-            {
-                return;
-            }
-
             // check box for admin login 
-            else if (adminCheck.Checked == true)
+            if (adminCheck.Checked == true)
             {
                 
                 if (admin.checkPin(u,p) == true)
@@ -120,7 +114,7 @@ namespace a_home_appliance_rental_application
         }
 
         
-        // click register button 
+        // click register button to open registration page 
         private void btnRegister_Click(object sender, EventArgs e)
         {
             this.Hide();

@@ -40,6 +40,7 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.inputConfirmPassword = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // registerHeader
@@ -124,6 +125,7 @@
             this.btnCreate.TabIndex = 9;
             this.btnCreate.Text = "Create Account";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // inputConfirmPassword
             // 
@@ -141,11 +143,22 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "Confirm Password :";
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(28, 396);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(30, 23);
+            this.btnBack.TabIndex = 10;
+            this.btnBack.Text = "<";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 485);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.inputConfirmPassword);
             this.Controls.Add(this.inputPassword);
@@ -180,5 +193,6 @@
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.TextBox inputConfirmPassword;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnBack;
     }
 }
