@@ -14,6 +14,7 @@ namespace a_home_appliance_rental_application
         private string password;
         private string email;
         private string phoneNumber;
+        private string address;
 
         // accessor method 
         public string Name { get => name; set => name = value; }
@@ -21,12 +22,13 @@ namespace a_home_appliance_rental_application
 
 
         // constructor
-        public User(string n,string p,string e,string pn) 
+        public User(string n,string p,string e,string pn,string add) 
         {   
             name = n;
             password = p;
             email = e;
             phoneNumber = pn;
+            address = add;
         }
 
         // check pin method
@@ -46,7 +48,7 @@ namespace a_home_appliance_rental_application
     class Adminuser : User
     {
         // constructor for adminuser
-        public Adminuser(string n,string p,string e,string ph):base(n, p, e, ph)
+        public Adminuser(string n,string p,string e,string ph,string add):base(n, p, e, ph,add)
         {
 
         }
@@ -101,7 +103,7 @@ namespace a_home_appliance_rental_application
     class NormalUser : User
     {
         // constructor for normal user
-        public NormalUser(string n, string p, string e, string ph) : base(n, p, e, ph)
+        public NormalUser(string n, string p, string e, string ph,string add) : base(n, p, e, ph,add)
         {
 
         }

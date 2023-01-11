@@ -29,113 +29,122 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.displayAdmin = new System.Windows.Forms.DataGridView();
+            this.btnDisplayItem = new System.Windows.Forms.Button();
+            this.btnDisplayUser = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.displayAdmin)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 33);
+            this.label1.Location = new System.Drawing.Point(28, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(182, 31);
+            this.label1.Size = new System.Drawing.Size(167, 31);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Admin Page : ";
+            this.label1.Text = "Admin Page ";
             // 
-            // dataGridView1
+            // displayAdmin
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 112);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(692, 490);
-            this.dataGridView1.TabIndex = 1;
+            this.displayAdmin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.displayAdmin.Location = new System.Drawing.Point(34, 143);
+            this.displayAdmin.Name = "displayAdmin";
+            this.displayAdmin.Size = new System.Drawing.Size(640, 324);
+            this.displayAdmin.TabIndex = 1;
+            // 
+            // btnDisplayItem
+            // 
+            this.btnDisplayItem.Location = new System.Drawing.Point(557, 80);
+            this.btnDisplayItem.Name = "btnDisplayItem";
+            this.btnDisplayItem.Size = new System.Drawing.Size(117, 31);
+            this.btnDisplayItem.TabIndex = 2;
+            this.btnDisplayItem.Text = "Display Item";
+            this.btnDisplayItem.UseVisualStyleBackColor = true;
+            this.btnDisplayItem.Click += new System.EventHandler(this.btnDisplayItem_Click);
+            // 
+            // btnDisplayUser
+            // 
+            this.btnDisplayUser.Location = new System.Drawing.Point(403, 80);
+            this.btnDisplayUser.Name = "btnDisplayUser";
+            this.btnDisplayUser.Size = new System.Drawing.Size(117, 31);
+            this.btnDisplayUser.TabIndex = 3;
+            this.btnDisplayUser.Text = "Display User";
+            this.btnDisplayUser.UseVisualStyleBackColor = true;
+            this.btnDisplayUser.Click += new System.EventHandler(this.btnDisplayUser_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(34, 491);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(113, 40);
+            this.btnLogout.TabIndex = 5;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(788, 127);
+            this.button1.Location = new System.Drawing.Point(703, 149);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 40);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button3";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnDelete
             // 
-            this.button2.Location = new System.Drawing.Point(788, 176);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(703, 263);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(113, 40);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Delete appliance";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // button3
+            // btnAdd
             // 
-            this.button3.Location = new System.Drawing.Point(788, 225);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(703, 149);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(113, 40);
+            this.btnAdd.TabIndex = 4;
+            this.btnAdd.Text = "Add appliance";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button4
+            // btnEdit
             // 
-            this.button4.Location = new System.Drawing.Point(788, 270);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(366, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "label2";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(427, 63);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(651, 63);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnEdit.Location = new System.Drawing.Point(703, 208);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(113, 40);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "Edit appliance";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // admin_page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 650);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(862, 556);
+            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnDisplayUser);
+            this.Controls.Add(this.btnDisplayItem);
+            this.Controls.Add(this.displayAdmin);
             this.Controls.Add(this.label1);
             this.Name = "admin_page";
             this.Text = "admin";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.admin_page_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.displayAdmin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,13 +153,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView displayAdmin;
+        private System.Windows.Forms.Button btnDisplayItem;
+        private System.Windows.Forms.Button btnDisplayUser;
+        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnEdit;
     }
 }

@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -33,7 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,11 +48,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="add item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add item.Designer.cs">
+      <DependentUpon>add item.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin_page.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="admin_page.Designer.cs">
       <DependentUpon>admin_page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="a_home_appliance_rental_application_database.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>a_home_appliance_rental_application_database.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="delete item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="delete item.Designer.cs">
+      <DependentUpon>delete item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="edit item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="edit item.Designer.cs">
+      <DependentUpon>edit item.cs</DependentUpon>
     </Compile>
     <Compile Include="registration.cs">
       <SubType>Form</SubType>
@@ -73,8 +98,17 @@
       <DependentUpon>user page.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="add item.resx">
+      <DependentUpon>add item.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="admin_page.resx">
       <DependentUpon>admin_page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="delete item.resx">
+      <DependentUpon>delete item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="edit item.resx">
+      <DependentUpon>edit item.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="registration.resx">
       <DependentUpon>registration.cs</DependentUpon>
@@ -94,6 +128,17 @@
     <EmbeddedResource Include="user page.resx">
       <DependentUpon>user page.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="a_home_appliance_rental_application_database.xsc">
+      <DependentUpon>a_home_appliance_rental_application_database.xsd</DependentUpon>
+    </None>
+    <None Include="a_home_appliance_rental_application_database.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>a_home_appliance_rental_application_database.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="a_home_appliance_rental_application_database.xss">
+      <DependentUpon>a_home_appliance_rental_application_database.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -106,6 +151,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="a home appliance rental application.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
