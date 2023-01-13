@@ -49,7 +49,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 143);
+            this.label2.Location = new System.Drawing.Point(25, 177);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             // inputSearch
             // 
-            this.inputSearch.Location = new System.Drawing.Point(131, 140);
+            this.inputSearch.Location = new System.Drawing.Point(133, 174);
             this.inputSearch.Name = "inputSearch";
             this.inputSearch.Size = new System.Drawing.Size(138, 20);
             this.inputSearch.TabIndex = 4;
@@ -75,7 +75,10 @@
             // comboChoose
             // 
             this.comboChoose.FormattingEnabled = true;
-            this.comboChoose.Location = new System.Drawing.Point(131, 199);
+            this.comboChoose.Items.AddRange(new object[] {
+            "id",
+            "name"});
+            this.comboChoose.Location = new System.Drawing.Point(133, 133);
             this.comboChoose.Name = "comboChoose";
             this.comboChoose.Size = new System.Drawing.Size(138, 21);
             this.comboChoose.TabIndex = 5;
@@ -83,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 202);
+            this.label3.Location = new System.Drawing.Point(47, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 6;

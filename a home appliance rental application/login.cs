@@ -9,16 +9,20 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace a_home_appliance_rental_application
 {
     public partial class login : Form
     {
-        // list to store account 
-        List<User> userList;
-
-        // admin user
         User admin;
+
+        // oledb with microsoft access database 
+        OleDbConnection connect = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\alpharJustACode\Documents\a home appliance rental application.accdb");
+        DataTable dt;
+        OleDbCommand cmd;
+        OleDbDataAdapter ad;
+
 
         public login()
         {
@@ -28,45 +32,11 @@ namespace a_home_appliance_rental_application
         // form load 
         private void login_Load(object sender, EventArgs e)
         {
-            userList = new List<User>();
-
-            // admin account 
-            admin = new Adminuser("Swam Htet", "222222", "swamhtet129@gmail.com", "09951538463","undefined");
-            
-
-            // add normal user to the list
-            addNormalUserToList("alphar", "111111", "soesoe234@gmail.com", "09123456789","undefined");
+            admin = new Adminuser("Swam Htet", "rocket100", "swamhtet129@gmail.com", "+959900400200", "Shwebo, Sagaing");
 
         }
 
-        // add normal user to the list
-        public void addNormalUserToList(string u,string p,string e,string ph,string add)
-        {
-            // create normal user account from function arguments
-            User something = new NormalUser(u, p, e, ph,add);
-
-            // add normal user to the list
-            userList.Add(something);
-        }
-
-        // find normal user account form the list
-        private User findAccount(String name, String pin)
-        {
-            User check;
-
-            for (int i = 0; i < userList.Count; i++)
-            {
-                check = userList[i];
-
-                if (check.checkPin(name, pin) == true)
-                {
-                    return check;
-                }
-            }
-            return null;
-        }
-
-
+      
         // click login button
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -77,12 +47,30 @@ namespace a_home_appliance_rental_application
             if (adminCheck.Checked == true)
             {
 
-                if (admin.checkPin(u, p) == true)
+                // checking the admin from object
+                if (admin.checkPin(u,p) == true)
                 {
-                    // MessageBox.Show("Admin login successful.");
+                    // login successful
+                    // MessageBox.Show("Admin Login Successful.");
                     this.Hide();
                     new admin_page().Show();
                 }
+                /*
+                // check admin from the database
+                string check_admin_query = String.Format("select `name`,`password` from `administrator` where `name` = '" + inputUsername.Text + "' and `password` = '" + inputPassword.Text + "'");
+
+                cmd = new OleDbCommand(check_admin_query, connect);
+                ad = new OleDbDataAdapter(cmd);
+                dt = new DataTable();
+                ad.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    // login successful
+                    // MessageBox.Show("Admin Login Successful.");
+                    this.Hide();
+                    new admin_page().Show();
+                }
+                */
                 else
                 {
                     MessageBox.Show("Admin input fail.");
@@ -92,24 +80,26 @@ namespace a_home_appliance_rental_application
             // no checkobox for normal user login
             else
             {
-                // find user account from the list
-                User check = findAccount(u, p);
+                // check user from the database
+                string check_user_query = String.Format("select `name`,`password` from `user` where `name` = '" + inputUsername.Text + "' and `password` = '" + inputPassword.Text + "'");
 
-                // login in successful
-                if (check != null)
+                cmd = new OleDbCommand(check_user_query, connect);
+                ad = new OleDbDataAdapter(cmd);
+                dt = new DataTable();
+                ad.Fill(dt);
+                if(dt.Rows.Count > 0)
                 {
-                    // MessageBox.Show("Normal user login successful");
+                    // login successful
+                    // MessageBox.Show("User Login Successful.");
                     this.Hide();
                     new user_page().Show();
                 }
-
-                // no account in the list
                 else
                 {
-                    MessageBox.Show("There is no account in the normal user list.");
+                    // fail login 
+                    MessageBox.Show("There is no match account in the list.");
                 }
             }
-
 
         }
 

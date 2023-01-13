@@ -13,6 +13,7 @@ namespace a_home_appliance_rental_application
 {
     public partial class user_page : Form
     {
+        
 
         // oledb with microsoft access database 
         OleDbConnection connect = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\alpharJustACode\Documents\a home appliance rental application.accdb");
@@ -58,7 +59,7 @@ namespace a_home_appliance_rental_application
         // sort item with energy consumption 
         private void btnSort_Click(object sender, EventArgs e)
         {
-            string sort_display_string = String.Format("select * from `appliance` order by `powerUsage`;");
+            string sort_display_string = String.Format("select * from `appliance` order by `powerUsage` desc;");
             cmd = new OleDbCommand(sort_display_string, connect);
             ad = new OleDbDataAdapter(cmd);
             dt = new DataTable();
@@ -70,6 +71,14 @@ namespace a_home_appliance_rental_application
         // search item with type 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            string search_item_type = inputSearch.Text;
+            string search_item_query = String.Format("select * from `appliance` where `name` = '{0}';",search_item_type);
+            cmd = new OleDbCommand(search_item_query, connect);
+            ad = new OleDbDataAdapter(cmd);
+            dt = new DataTable();
+            ad.Fill(dt);
+            userDisplay.DataSource = dt;
+
 
         }
 

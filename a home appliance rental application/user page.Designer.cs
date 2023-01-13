@@ -43,14 +43,14 @@
             // userDisplay
             // 
             this.userDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.userDisplay.Location = new System.Drawing.Point(29, 123);
+            this.userDisplay.Location = new System.Drawing.Point(24, 101);
             this.userDisplay.Name = "userDisplay";
             this.userDisplay.Size = new System.Drawing.Size(738, 450);
             this.userDisplay.TabIndex = 0;
             // 
             // btnDisplay
             // 
-            this.btnDisplay.Location = new System.Drawing.Point(803, 125);
+            this.btnDisplay.Location = new System.Drawing.Point(798, 103);
             this.btnDisplay.Name = "btnDisplay";
             this.btnDisplay.Size = new System.Drawing.Size(92, 37);
             this.btnDisplay.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             // btnSort
             // 
-            this.btnSort.Location = new System.Drawing.Point(803, 178);
+            this.btnSort.Location = new System.Drawing.Point(798, 156);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(92, 37);
             this.btnSort.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             // btnCart
             // 
-            this.btnCart.Location = new System.Drawing.Point(803, 265);
+            this.btnCart.Location = new System.Drawing.Point(798, 243);
             this.btnCart.Name = "btnCart";
             this.btnCart.Size = new System.Drawing.Size(92, 37);
             this.btnCart.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(29, 590);
+            this.btnLogout.Location = new System.Drawing.Point(24, 568);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(92, 37);
             this.btnLogout.TabIndex = 4;
@@ -92,7 +92,7 @@
             // 
             this.userHeader.AutoSize = true;
             this.userHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userHeader.Location = new System.Drawing.Point(34, 67);
+            this.userHeader.Location = new System.Drawing.Point(29, 45);
             this.userHeader.Name = "userHeader";
             this.userHeader.Size = new System.Drawing.Size(79, 31);
             this.userHeader.TabIndex = 5;
@@ -100,14 +100,14 @@
             // 
             // inputSearch
             // 
-            this.inputSearch.Location = new System.Drawing.Point(457, 87);
+            this.inputSearch.Location = new System.Drawing.Point(452, 65);
             this.inputSearch.Name = "inputSearch";
             this.inputSearch.Size = new System.Drawing.Size(168, 20);
             this.inputSearch.TabIndex = 7;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(631, 82);
+            this.btnSearch.Location = new System.Drawing.Point(626, 60);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(98, 28);
             this.btnSearch.TabIndex = 8;
@@ -117,7 +117,7 @@
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(803, 324);
+            this.btnCalculate.Location = new System.Drawing.Point(798, 302);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(92, 38);
             this.btnCalculate.TabIndex = 9;

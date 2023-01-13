@@ -42,7 +42,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(117, 52);
+            this.label1.Location = new System.Drawing.Point(36, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 25);
             this.label1.TabIndex = 0;
@@ -53,7 +53,10 @@
             this.inputChoose.FormattingEnabled = true;
             this.inputChoose.Items.AddRange(new object[] {
             "id",
-            "name"});
+            "name",
+            "powerUsage",
+            "typicalUsage",
+            "runningCost"});
             this.inputChoose.Location = new System.Drawing.Point(155, 170);
             this.inputChoose.Name = "inputChoose";
             this.inputChoose.Size = new System.Drawing.Size(161, 21);
@@ -71,18 +74,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(38, 170);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 13);
+            this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Choose changes :";
+            this.label2.Text = "Choose column :";
             // 
             // Change
             // 
             this.Change.AutoSize = true;
-            this.Change.Location = new System.Drawing.Point(81, 223);
+            this.Change.Location = new System.Drawing.Point(69, 223);
             this.Change.Name = "Change";
-            this.Change.Size = new System.Drawing.Size(50, 13);
+            this.Change.Size = new System.Drawing.Size(55, 13);
             this.Change.TabIndex = 4;
-            this.Change.Text = "Change :";
+            this.Change.Text = "Changes :";
             // 
             // btnEdit
             // 
@@ -104,11 +107,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 128);
+            this.label3.Location = new System.Drawing.Point(100, 124);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 13);
+            this.label3.Size = new System.Drawing.Size(24, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Search Item  with ID :";
+            this.label3.Text = "ID :";
             // 
             // edit_item
             // 

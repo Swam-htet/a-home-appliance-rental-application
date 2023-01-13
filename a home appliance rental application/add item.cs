@@ -32,8 +32,7 @@ namespace a_home_appliance_rental_application
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            // checking appliance duplication 
-
+            
 
 
             // input strings
@@ -42,15 +41,36 @@ namespace a_home_appliance_rental_application
             string typical = inputTypical.Text;
             int cost = int.Parse(inputCost.Text);
 
-            // query string 
-            string add_query = String.Format("insert into `appliance` (`name`,`powerUsage`,`typicalUsage`,`runningCost`) values(`{0}`,`{1}`,`{2}`,`3`);",name,power,typical,cost);
+            // checking appliance duplication 
+            // check user from the database
+            string check_item_query = String.Format("select `name` from `appliance` where `name` = '" + name + "'");
 
-            cmd = new OleDbCommand(add_query, connect);
+            cmd = new OleDbCommand(check_item_query, connect);
             ad = new OleDbDataAdapter(cmd);
             dt = new DataTable();
             ad.Fill(dt);
-            ad.Update(dt);
-            MessageBox.Show("Adding new appliance Successful");
+
+            // no duplicate item
+            if (dt.Rows.Count == 0)
+            {
+                // query string 
+                string add_query = String.Format("insert into `appliance` (`name`,`powerUsage`,`typicalUsage`,`runningCost`) values('{0}','{1}','{2}','{3}');", name, power, typical, cost);
+
+                // create new item to the database
+                cmd = new OleDbCommand(add_query, connect);
+                ad = new OleDbDataAdapter(cmd);
+                dt = new DataTable();
+                ad.Fill(dt);
+                ad.Update(dt);
+                MessageBox.Show("Adding new appliance Successful");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("This appliance is already existed in the list.");
+            }
+
+            
         }
     }
 }
