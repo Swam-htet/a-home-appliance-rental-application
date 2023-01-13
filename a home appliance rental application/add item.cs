@@ -43,7 +43,7 @@ namespace a_home_appliance_rental_application
             int cost = int.Parse(inputCost.Text);
 
             // query string 
-            string add_query = String.Format("insert into `appliance` (`name`,`powerUsage`,`typicalUsage`,'runningCost') values(`{0}`,`{1}`,`{2}`,`{3}`)", name,power,typical,cost);
+            string add_query = String.Format("insert into `appliance` (`name`,`powerUsage`,`typicalUsage`,`runningCost`) values(`{0}`,`{1}`,`{2}`,`3`);",name,power,typical,cost);
 
             cmd = new OleDbCommand(add_query, connect);
             ad = new OleDbDataAdapter(cmd);

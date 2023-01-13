@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 
 namespace a_home_appliance_rental_application
@@ -31,7 +32,7 @@ namespace a_home_appliance_rental_application
 
             // query string 
             string delete_query = String.Format("delete from `appliance` where `{0}` like \"%`{1}`%\";",type,search);
-
+            
 
             // lack of delete search item
 
@@ -43,6 +44,8 @@ namespace a_home_appliance_rental_application
             ad.Fill(dt);
             ad.Update(dt);
             MessageBox.Show("Deleting appliance Successful");
+            
+
         }
     }
 }

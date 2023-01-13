@@ -31,11 +31,12 @@
             this.userDisplay = new System.Windows.Forms.DataGridView();
             this.btnDisplay = new System.Windows.Forms.Button();
             this.btnSort = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnCart = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.userHeader = new System.Windows.Forms.Label();
             this.inputSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.btnCalculate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.userDisplay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,14 +68,15 @@
             this.btnSort.UseVisualStyleBackColor = true;
             this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
-            // button3
+            // btnCart
             // 
-            this.button3.Location = new System.Drawing.Point(803, 245);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(92, 37);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCart.Location = new System.Drawing.Point(803, 265);
+            this.btnCart.Name = "btnCart";
+            this.btnCart.Size = new System.Drawing.Size(92, 37);
+            this.btnCart.TabIndex = 3;
+            this.btnCart.Text = "Add to Cart";
+            this.btnCart.UseVisualStyleBackColor = true;
+            this.btnCart.Click += new System.EventHandler(this.btnCart_Click);
             // 
             // btnLogout
             // 
@@ -98,30 +100,42 @@
             // 
             // inputSearch
             // 
-            this.inputSearch.Location = new System.Drawing.Point(536, 90);
+            this.inputSearch.Location = new System.Drawing.Point(457, 87);
             this.inputSearch.Name = "inputSearch";
-            this.inputSearch.Size = new System.Drawing.Size(136, 20);
+            this.inputSearch.Size = new System.Drawing.Size(168, 20);
             this.inputSearch.TabIndex = 7;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(692, 90);
+            this.btnSearch.Location = new System.Drawing.Point(631, 82);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 20);
+            this.btnSearch.Size = new System.Drawing.Size(98, 28);
             this.btnSearch.TabIndex = 8;
-            this.btnSearch.Text = "Search";
+            this.btnSearch.Text = "Search with type";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnCalculate
+            // 
+            this.btnCalculate.Location = new System.Drawing.Point(803, 324);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(92, 38);
+            this.btnCalculate.TabIndex = 9;
+            this.btnCalculate.Text = "Calculate Total";
+            this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btn_calculate_Click);
             // 
             // user_page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 648);
+            this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.inputSearch);
             this.Controls.Add(this.userHeader);
             this.Controls.Add(this.btnLogout);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnCart);
             this.Controls.Add(this.btnSort);
             this.Controls.Add(this.btnDisplay);
             this.Controls.Add(this.userDisplay);
@@ -139,10 +153,11 @@
         private System.Windows.Forms.DataGridView userDisplay;
         private System.Windows.Forms.Button btnDisplay;
         private System.Windows.Forms.Button btnSort;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnCart;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label userHeader;
         private System.Windows.Forms.TextBox inputSearch;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnCalculate;
     }
 }

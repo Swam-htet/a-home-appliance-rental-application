@@ -120,7 +120,7 @@ namespace a_home_appliance_rental_application
                 User add = new NormalUser(name, pw, email, phNo,address);
 
                 // add the use to the database
-                string query = String.Format("insert into `user`(`Name`,`Password`,`Address`,`Email`,phoneNumber`) values ('{0}','{1}','{2}','{3}',`{4}`);", name, pw, address ,email,phNo);
+                string create_user_query = String.Format("insert into `user` (`Name`,`Password`,`address`,`email`,`phoneNumber`) values (`{0}`,`{1}`,`{2}`,`{3}`,`{4}`);");
 
 
                 // checking duplicated user from the database
@@ -128,12 +128,16 @@ namespace a_home_appliance_rental_application
 
 
 
-                cmd = new OleDbCommand(query, connect);
+                cmd = new OleDbCommand(create_user_query, connect);
                 ad = new OleDbDataAdapter(cmd);
                 dt = new DataTable();
                 ad.Fill(dt);
                 ad.Update(dt);
-                MessageBox.Show("Registeration Successful");
+                MessageBox.Show("Registeration Successful.");
+
+                // open user page
+                this.Hide();
+                new user_page().Show();
 
                 // open user page
                 this.Hide();
@@ -142,7 +146,7 @@ namespace a_home_appliance_rental_application
             else
             {
                 // fail validation
-                MessageBox.Show("Need to check you input details.");
+                MessageBox.Show("Please check user details.");
             }
             
         }

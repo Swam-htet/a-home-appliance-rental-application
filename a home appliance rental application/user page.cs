@@ -58,6 +58,30 @@ namespace a_home_appliance_rental_application
         // sort item with energy consumption 
         private void btnSort_Click(object sender, EventArgs e)
         {
+            string sort_display_string = String.Format("select * from `appliance` order by `powerUsage`;");
+            cmd = new OleDbCommand(sort_display_string, connect);
+            ad = new OleDbDataAdapter(cmd);
+            dt = new DataTable();
+            ad.Fill(dt);
+            userDisplay.DataSource = dt;
+        }
+
+
+        // search item with type 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // add to the shopping cart button
+        private void btnCart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // calculate total price 
+        private void btn_calculate_Click(object sender, EventArgs e)
+        {
 
         }
     }
