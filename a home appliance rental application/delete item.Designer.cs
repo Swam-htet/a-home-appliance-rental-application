@@ -32,8 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.inputSearch = new System.Windows.Forms.TextBox();
-            this.comboChoose = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -49,15 +47,15 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 177);
+            this.label2.Location = new System.Drawing.Point(12, 177);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 13);
+            this.label2.Size = new System.Drawing.Size(120, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Search Appliance :";
+            this.label2.Text = "Name of the appliance :";
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(156, 250);
+            this.btnDelete.Location = new System.Drawing.Point(189, 243);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(82, 35);
             this.btnDelete.TabIndex = 3;
@@ -72,39 +70,18 @@
             this.inputSearch.Size = new System.Drawing.Size(138, 20);
             this.inputSearch.TabIndex = 4;
             // 
-            // comboChoose
-            // 
-            this.comboChoose.FormattingEnabled = true;
-            this.comboChoose.Items.AddRange(new object[] {
-            "id",
-            "name"});
-            this.comboChoose.Location = new System.Drawing.Point(133, 133);
-            this.comboChoose.Name = "comboChoose";
-            this.comboChoose.Size = new System.Drawing.Size(138, 21);
-            this.comboChoose.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 136);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Choose Here :";
-            // 
             // delete_item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 327);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboChoose);
+            this.ClientSize = new System.Drawing.Size(309, 322);
             this.Controls.Add(this.inputSearch);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "delete_item";
             this.Text = "Deleting Appliance";
+            this.Load += new System.EventHandler(this.delete_item_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,7 +93,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox inputSearch;
-        private System.Windows.Forms.ComboBox comboChoose;
-        private System.Windows.Forms.Label label3;
     }
 }

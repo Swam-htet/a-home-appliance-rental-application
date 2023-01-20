@@ -36,14 +36,16 @@ namespace a_home_appliance_rental_application
 
 
             // input strings
-            string name = inputType.Text;
+            string name = inputName.Text;
             string power = inputPower.Text;
             string typical = inputTypical.Text;
             int cost = int.Parse(inputCost.Text);
+            string type = inputType.Text;
+            string description = inputDescription.Text;
 
             // checking appliance duplication 
             // check user from the database
-            string check_item_query = String.Format("select `name` from `appliance` where `name` = '" + name + "'");
+            string check_item_query = String.Format("select `name` from `appliance` where `name` = '" + name + "' and  `type` = '"+type+"'");
 
             cmd = new OleDbCommand(check_item_query, connect);
             ad = new OleDbDataAdapter(cmd);
@@ -54,7 +56,7 @@ namespace a_home_appliance_rental_application
             if (dt.Rows.Count == 0)
             {
                 // query string 
-                string add_query = String.Format("insert into `appliance` (`name`,`powerUsage`,`typicalUsage`,`runningCost`) values('{0}','{1}','{2}','{3}');", name, power, typical, cost);
+                string add_query = String.Format("insert into `appliance` (`name`,`powerUsage`,`typicalUsage`,`runningCost`,`type`,`description`) values('{0}','{1}','{2}','{3}','{4}','{5}');", name, power, typical, cost,type,description);
 
                 // create new item to the database
                 cmd = new OleDbCommand(add_query, connect);

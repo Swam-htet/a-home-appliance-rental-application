@@ -27,11 +27,9 @@ namespace a_home_appliance_rental_application
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            
-            string type = comboChoose.Text;
             string search = inputSearch.Text;
             // query string 
-            string delete_query = String.Format("delete from `appliance` where `{0}` = '{1}'", type, search);
+            string delete_query = "delete from `appliance` where `name` = '" + search + "'";
 
             // delete from the database
             cmd = new OleDbCommand(delete_query, connect);
@@ -40,10 +38,15 @@ namespace a_home_appliance_rental_application
             ad.Fill(dt);
             ad.Update(dt);
             MessageBox.Show("Deleting appliance Successful");
-            this.Close();  
+            this.Close();
 
         }
 
-        
+
+        private void delete_item_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

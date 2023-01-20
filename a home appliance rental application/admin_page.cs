@@ -27,7 +27,20 @@ namespace a_home_appliance_rental_application
         // admin page form load
         private void admin_page_Load(object sender, EventArgs e)
         {
-            string display_string = String.Format("select * from `appliance`;");
+            displayItem();
+        }
+
+        // display item button 
+        private void btnDisplayItem_Click(object sender, EventArgs e)
+        {
+            displayItem();
+
+        }
+
+        // display item function
+         private void displayItem()
+        {
+            string display_string = String.Format("select * from `appliance` order by `id`;");
             cmd = new OleDbCommand(display_string, connect);
             ad = new OleDbDataAdapter(cmd);
             dt = new DataTable();
@@ -35,22 +48,10 @@ namespace a_home_appliance_rental_application
             displayAdmin.DataSource = dt;
         }
 
-        // display item button 
-        private void btnDisplayItem_Click(object sender, EventArgs e)
-        {
-            string display_string = String.Format("select * from `appliance`;");
-            cmd = new OleDbCommand(display_string,connect);
-            ad = new OleDbDataAdapter(cmd);
-            dt = new DataTable();
-            ad.Fill(dt);
-            displayAdmin.DataSource= dt;
-
-        }
-
         // display user button
         private void btnDisplayUser_Click(object sender, EventArgs e)
         {
-            string display_user = String.Format("select * from `user`;");
+            string display_user = String.Format("select * from `user` order by `id`;");
             cmd = new OleDbCommand(display_user, connect);
             ad = new OleDbDataAdapter(cmd);
             dt = new DataTable();
@@ -68,19 +69,44 @@ namespace a_home_appliance_rental_application
         // add, edit and delete item button 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            new add_item().Show();
+            // new add_item().Show();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            new edit_item().Show();
+            // new edit_item().Show();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            new delete_item().Show();   
+            int search = Int32.Parse(inputID.Text);
+            // query string 
+            string delete_query = "delete from `appliance` where `id` = '" + search + "'";
+
+            // delete from the database
+            cmd = new OleDbCommand(delete_query, connect);
+            ad = new OleDbDataAdapter(cmd);
+            dt = new DataTable();
+            ad.Fill(dt);
+            ad.Update(dt);
+            MessageBox.Show("Deleting appliance Successful");
+            this.Close();
+
+            displayItem();
+            // new delete_item().Show();   
         }
 
-        
+        private void displayAdmin_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            inputID.Text = displayAdmin.CurrentRow.Cells[0].Value.ToString();
+            inputName.Text = displayAdmin.CurrentRow.Cells[1].Value.ToString();
+
+            inputPower.Text = displayAdmin.CurrentRow.Cells[2].Value.ToString();
+            inputUsage.Text = displayAdmin.CurrentRow.Cells[3].Value.ToString();
+            inputCost.Text = displayAdmin.CurrentRow.Cells[4].Value.ToString();
+            inputType.Text = displayAdmin.CurrentRow.Cells[5].Value.ToString();
+            inputDescription.Text = displayAdmin.CurrentRow.Cells[6].Value.ToString();
+
+        }
     }
 }

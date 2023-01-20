@@ -20,13 +20,13 @@ namespace a_home_appliance_rental_application {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("a_home_appliance_rental_application_database")]
+    [global::System.Xml.Serialization.XmlRootAttribute("a_home_appliance_rental_applicationDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class a_home_appliance_rental_application_database : global::System.Data.DataSet {
-        
-        private administratorDataTable tableadministrator;
+    public partial class a_home_appliance_rental_applicationDataSet : global::System.Data.DataSet {
         
         private applianceDataTable tableappliance;
+        
+        private cartDataTable tablecart;
         
         private userDataTable tableuser;
         
@@ -34,7 +34,7 @@ namespace a_home_appliance_rental_application {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public a_home_appliance_rental_application_database() {
+        public a_home_appliance_rental_applicationDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -45,7 +45,7 @@ namespace a_home_appliance_rental_application {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected a_home_appliance_rental_application_database(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected a_home_appliance_rental_applicationDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -58,11 +58,11 @@ namespace a_home_appliance_rental_application {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["administrator"] != null)) {
-                    base.Tables.Add(new administratorDataTable(ds.Tables["administrator"]));
-                }
                 if ((ds.Tables["appliance"] != null)) {
                     base.Tables.Add(new applianceDataTable(ds.Tables["appliance"]));
+                }
+                if ((ds.Tables["cart"] != null)) {
+                    base.Tables.Add(new cartDataTable(ds.Tables["cart"]));
                 }
                 if ((ds.Tables["user"] != null)) {
                     base.Tables.Add(new userDataTable(ds.Tables["user"]));
@@ -89,9 +89,9 @@ namespace a_home_appliance_rental_application {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public administratorDataTable administrator {
+        public applianceDataTable appliance {
             get {
-                return this.tableadministrator;
+                return this.tableappliance;
             }
         }
         
@@ -99,9 +99,9 @@ namespace a_home_appliance_rental_application {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public applianceDataTable appliance {
+        public cartDataTable cart {
             get {
-                return this.tableappliance;
+                return this.tablecart;
             }
         }
         
@@ -157,7 +157,7 @@ namespace a_home_appliance_rental_application {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            a_home_appliance_rental_application_database cln = ((a_home_appliance_rental_application_database)(base.Clone()));
+            a_home_appliance_rental_applicationDataSet cln = ((a_home_appliance_rental_applicationDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -182,11 +182,11 @@ namespace a_home_appliance_rental_application {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["administrator"] != null)) {
-                    base.Tables.Add(new administratorDataTable(ds.Tables["administrator"]));
-                }
                 if ((ds.Tables["appliance"] != null)) {
                     base.Tables.Add(new applianceDataTable(ds.Tables["appliance"]));
+                }
+                if ((ds.Tables["cart"] != null)) {
+                    base.Tables.Add(new cartDataTable(ds.Tables["cart"]));
                 }
                 if ((ds.Tables["user"] != null)) {
                     base.Tables.Add(new userDataTable(ds.Tables["user"]));
@@ -224,16 +224,16 @@ namespace a_home_appliance_rental_application {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableadministrator = ((administratorDataTable)(base.Tables["administrator"]));
-            if ((initTable == true)) {
-                if ((this.tableadministrator != null)) {
-                    this.tableadministrator.InitVars();
-                }
-            }
             this.tableappliance = ((applianceDataTable)(base.Tables["appliance"]));
             if ((initTable == true)) {
                 if ((this.tableappliance != null)) {
                     this.tableappliance.InitVars();
+                }
+            }
+            this.tablecart = ((cartDataTable)(base.Tables["cart"]));
+            if ((initTable == true)) {
+                if ((this.tablecart != null)) {
+                    this.tablecart.InitVars();
                 }
             }
             this.tableuser = ((userDataTable)(base.Tables["user"]));
@@ -247,28 +247,28 @@ namespace a_home_appliance_rental_application {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "a_home_appliance_rental_application_database";
+            this.DataSetName = "a_home_appliance_rental_applicationDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/a_home_appliance_rental_application_database.xsd";
+            this.Namespace = "http://tempuri.org/a_home_appliance_rental_applicationDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableadministrator = new administratorDataTable();
-            base.Tables.Add(this.tableadministrator);
             this.tableappliance = new applianceDataTable();
             base.Tables.Add(this.tableappliance);
+            this.tablecart = new cartDataTable();
+            base.Tables.Add(this.tablecart);
             this.tableuser = new userDataTable();
             base.Tables.Add(this.tableuser);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeadministrator() {
+        private bool ShouldSerializeappliance() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeappliance() {
+        private bool ShouldSerializecart() {
             return false;
         }
         
@@ -289,7 +289,7 @@ namespace a_home_appliance_rental_application {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            a_home_appliance_rental_application_database ds = new a_home_appliance_rental_application_database();
+            a_home_appliance_rental_applicationDataSet ds = new a_home_appliance_rental_applicationDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -334,349 +334,13 @@ namespace a_home_appliance_rental_application {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void administratorRowChangeEventHandler(object sender, administratorRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void applianceRowChangeEventHandler(object sender, applianceRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void userRowChangeEventHandler(object sender, userRowChangeEvent e);
+        public delegate void cartRowChangeEventHandler(object sender, cartRowChangeEvent e);
         
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class administratorDataTable : global::System.Data.TypedTableBase<administratorRow> {
-            
-            private global::System.Data.DataColumn columnID;
-            
-            private global::System.Data.DataColumn columnname;
-            
-            private global::System.Data.DataColumn columnaddress;
-            
-            private global::System.Data.DataColumn columnpassword;
-            
-            private global::System.Data.DataColumn columnphoneNumber;
-            
-            private global::System.Data.DataColumn columnemail;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public administratorDataTable() {
-                this.TableName = "administrator";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal administratorDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected administratorDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
-                get {
-                    return this.columnID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn nameColumn {
-                get {
-                    return this.columnname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn addressColumn {
-                get {
-                    return this.columnaddress;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn passwordColumn {
-                get {
-                    return this.columnpassword;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn phoneNumberColumn {
-                get {
-                    return this.columnphoneNumber;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn emailColumn {
-                get {
-                    return this.columnemail;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public administratorRow this[int index] {
-                get {
-                    return ((administratorRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event administratorRowChangeEventHandler administratorRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event administratorRowChangeEventHandler administratorRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event administratorRowChangeEventHandler administratorRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event administratorRowChangeEventHandler administratorRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddadministratorRow(administratorRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public administratorRow AddadministratorRow(string name, string address, string password, string phoneNumber, string email) {
-                administratorRow rowadministratorRow = ((administratorRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        name,
-                        address,
-                        password,
-                        phoneNumber,
-                        email};
-                rowadministratorRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowadministratorRow);
-                return rowadministratorRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public administratorRow FindByID(int ID) {
-                return ((administratorRow)(this.Rows.Find(new object[] {
-                            ID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                administratorDataTable cln = ((administratorDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new administratorDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnID = base.Columns["ID"];
-                this.columnname = base.Columns["name"];
-                this.columnaddress = base.Columns["address"];
-                this.columnpassword = base.Columns["password"];
-                this.columnphoneNumber = base.Columns["phoneNumber"];
-                this.columnemail = base.Columns["email"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname);
-                this.columnaddress = new global::System.Data.DataColumn("address", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnaddress);
-                this.columnpassword = new global::System.Data.DataColumn("password", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpassword);
-                this.columnphoneNumber = new global::System.Data.DataColumn("phoneNumber", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnphoneNumber);
-                this.columnemail = new global::System.Data.DataColumn("email", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemail);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID}, true));
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
-                this.columnID.AllowDBNull = false;
-                this.columnID.Unique = true;
-                this.columnname.MaxLength = 255;
-                this.columnaddress.MaxLength = 255;
-                this.columnpassword.MaxLength = 255;
-                this.columnphoneNumber.MaxLength = 255;
-                this.columnemail.MaxLength = 255;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public administratorRow NewadministratorRow() {
-                return ((administratorRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new administratorRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(administratorRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.administratorRowChanged != null)) {
-                    this.administratorRowChanged(this, new administratorRowChangeEvent(((administratorRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.administratorRowChanging != null)) {
-                    this.administratorRowChanging(this, new administratorRowChangeEvent(((administratorRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.administratorRowDeleted != null)) {
-                    this.administratorRowDeleted(this, new administratorRowChangeEvent(((administratorRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.administratorRowDeleting != null)) {
-                    this.administratorRowDeleting(this, new administratorRowChangeEvent(((administratorRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveadministratorRow(administratorRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                a_home_appliance_rental_application_database ds = new a_home_appliance_rental_application_database();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "administratorDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void userRowChangeEventHandler(object sender, userRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -694,6 +358,10 @@ namespace a_home_appliance_rental_application {
             private global::System.Data.DataColumn columntypicalUsage;
             
             private global::System.Data.DataColumn columnrunningCost;
+            
+            private global::System.Data.DataColumn columntype;
+            
+            private global::System.Data.DataColumn columnDescription;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -770,6 +438,22 @@ namespace a_home_appliance_rental_application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn typeColumn {
+                get {
+                    return this.columntype;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn DescriptionColumn {
+                get {
+                    return this.columnDescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -805,14 +489,16 @@ namespace a_home_appliance_rental_application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public applianceRow AddapplianceRow(string name, string powerUsage, string typicalUsage, decimal runningCost) {
+            public applianceRow AddapplianceRow(string name, string powerUsage, string typicalUsage, decimal runningCost, string type, string Description) {
                 applianceRow rowapplianceRow = ((applianceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         name,
                         powerUsage,
                         typicalUsage,
-                        runningCost};
+                        runningCost,
+                        type,
+                        Description};
                 rowapplianceRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowapplianceRow);
                 return rowapplianceRow;
@@ -847,6 +533,8 @@ namespace a_home_appliance_rental_application {
                 this.columnpowerUsage = base.Columns["powerUsage"];
                 this.columntypicalUsage = base.Columns["typicalUsage"];
                 this.columnrunningCost = base.Columns["runningCost"];
+                this.columntype = base.Columns["type"];
+                this.columnDescription = base.Columns["Description"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -862,6 +550,10 @@ namespace a_home_appliance_rental_application {
                 base.Columns.Add(this.columntypicalUsage);
                 this.columnrunningCost = new global::System.Data.DataColumn("runningCost", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnrunningCost);
+                this.columntype = new global::System.Data.DataColumn("type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntype);
+                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescription);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -872,6 +564,8 @@ namespace a_home_appliance_rental_application {
                 this.columnname.MaxLength = 255;
                 this.columnpowerUsage.MaxLength = 255;
                 this.columntypicalUsage.MaxLength = 255;
+                this.columntype.MaxLength = 255;
+                this.columnDescription.MaxLength = 536870910;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -939,7 +633,7 @@ namespace a_home_appliance_rental_application {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                a_home_appliance_rental_application_database ds = new a_home_appliance_rental_application_database();
+                a_home_appliance_rental_applicationDataSet ds = new a_home_appliance_rental_applicationDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -958,6 +652,338 @@ namespace a_home_appliance_rental_application {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "applianceDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class cartDataTable : global::System.Data.TypedTableBase<cartRow> {
+            
+            private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columnname;
+            
+            private global::System.Data.DataColumn columnquantity;
+            
+            private global::System.Data.DataColumn columnmonth;
+            
+            private global::System.Data.DataColumn columnprice;
+            
+            private global::System.Data.DataColumn columntotal;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public cartDataTable() {
+                this.TableName = "cart";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal cartDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected cartDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn nameColumn {
+                get {
+                    return this.columnname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn quantityColumn {
+                get {
+                    return this.columnquantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn monthColumn {
+                get {
+                    return this.columnmonth;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn priceColumn {
+                get {
+                    return this.columnprice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn totalColumn {
+                get {
+                    return this.columntotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public cartRow this[int index] {
+                get {
+                    return ((cartRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event cartRowChangeEventHandler cartRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event cartRowChangeEventHandler cartRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event cartRowChangeEventHandler cartRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event cartRowChangeEventHandler cartRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddcartRow(cartRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public cartRow AddcartRow(string name, int quantity, int month, int price, int total) {
+                cartRow rowcartRow = ((cartRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        name,
+                        quantity,
+                        month,
+                        price,
+                        total};
+                rowcartRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowcartRow);
+                return rowcartRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public cartRow FindByID(int ID) {
+                return ((cartRow)(this.Rows.Find(new object[] {
+                            ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                cartDataTable cln = ((cartDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new cartDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnID = base.Columns["ID"];
+                this.columnname = base.Columns["name"];
+                this.columnquantity = base.Columns["quantity"];
+                this.columnmonth = base.Columns["month"];
+                this.columnprice = base.Columns["price"];
+                this.columntotal = base.Columns["total"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname);
+                this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnquantity);
+                this.columnmonth = new global::System.Data.DataColumn("month", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmonth);
+                this.columnprice = new global::System.Data.DataColumn("price", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprice);
+                this.columntotal = new global::System.Data.DataColumn("total", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.Unique = true;
+                this.columnname.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public cartRow NewcartRow() {
+                return ((cartRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new cartRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(cartRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.cartRowChanged != null)) {
+                    this.cartRowChanged(this, new cartRowChangeEvent(((cartRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.cartRowChanging != null)) {
+                    this.cartRowChanging(this, new cartRowChangeEvent(((cartRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.cartRowDeleted != null)) {
+                    this.cartRowDeleted(this, new cartRowChangeEvent(((cartRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.cartRowDeleting != null)) {
+                    this.cartRowDeleting(this, new cartRowChangeEvent(((cartRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemovecartRow(cartRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                a_home_appliance_rental_applicationDataSet ds = new a_home_appliance_rental_applicationDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "cartDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1275,7 +1301,7 @@ namespace a_home_appliance_rental_application {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                a_home_appliance_rental_application_database ds = new a_home_appliance_rental_application_database();
+                a_home_appliance_rental_applicationDataSet ds = new a_home_appliance_rental_applicationDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1331,172 +1357,6 @@ namespace a_home_appliance_rental_application {
                 }
                 xs.Add(dsSchema);
                 return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class administratorRow : global::System.Data.DataRow {
-            
-            private administratorDataTable tableadministrator;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal administratorRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableadministrator = ((administratorDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int ID {
-                get {
-                    return ((int)(this[this.tableadministrator.IDColumn]));
-                }
-                set {
-                    this[this.tableadministrator.IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string name {
-                get {
-                    try {
-                        return ((string)(this[this.tableadministrator.nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'administrator\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableadministrator.nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string address {
-                get {
-                    try {
-                        return ((string)(this[this.tableadministrator.addressColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'address\' in table \'administrator\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableadministrator.addressColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string password {
-                get {
-                    try {
-                        return ((string)(this[this.tableadministrator.passwordColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'password\' in table \'administrator\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableadministrator.passwordColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string phoneNumber {
-                get {
-                    try {
-                        return ((string)(this[this.tableadministrator.phoneNumberColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'phoneNumber\' in table \'administrator\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableadministrator.phoneNumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string email {
-                get {
-                    try {
-                        return ((string)(this[this.tableadministrator.emailColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'email\' in table \'administrator\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableadministrator.emailColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsnameNull() {
-                return this.IsNull(this.tableadministrator.nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetnameNull() {
-                this[this.tableadministrator.nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsaddressNull() {
-                return this.IsNull(this.tableadministrator.addressColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetaddressNull() {
-                this[this.tableadministrator.addressColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IspasswordNull() {
-                return this.IsNull(this.tableadministrator.passwordColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetpasswordNull() {
-                this[this.tableadministrator.passwordColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsphoneNumberNull() {
-                return this.IsNull(this.tableadministrator.phoneNumberColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetphoneNumberNull() {
-                this[this.tableadministrator.phoneNumberColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsemailNull() {
-                return this.IsNull(this.tableadministrator.emailColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetemailNull() {
-                this[this.tableadministrator.emailColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1591,6 +1451,38 @@ namespace a_home_appliance_rental_application {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string type {
+                get {
+                    try {
+                        return ((string)(this[this.tableappliance.typeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'type\' in table \'appliance\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableappliance.typeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Description {
+                get {
+                    try {
+                        return ((string)(this[this.tableappliance.DescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'appliance\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableappliance.DescriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsnameNull() {
                 return this.IsNull(this.tableappliance.nameColumn);
             }
@@ -1635,6 +1527,196 @@ namespace a_home_appliance_rental_application {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetrunningCostNull() {
                 this[this.tableappliance.runningCostColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstypeNull() {
+                return this.IsNull(this.tableappliance.typeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettypeNull() {
+                this[this.tableappliance.typeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsDescriptionNull() {
+                return this.IsNull(this.tableappliance.DescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetDescriptionNull() {
+                this[this.tableappliance.DescriptionColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class cartRow : global::System.Data.DataRow {
+            
+            private cartDataTable tablecart;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal cartRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablecart = ((cartDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ID {
+                get {
+                    return ((int)(this[this.tablecart.IDColumn]));
+                }
+                set {
+                    this[this.tablecart.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string name {
+                get {
+                    try {
+                        return ((string)(this[this.tablecart.nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'cart\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecart.nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int quantity {
+                get {
+                    try {
+                        return ((int)(this[this.tablecart.quantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'quantity\' in table \'cart\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecart.quantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int month {
+                get {
+                    try {
+                        return ((int)(this[this.tablecart.monthColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'month\' in table \'cart\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecart.monthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int price {
+                get {
+                    try {
+                        return ((int)(this[this.tablecart.priceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'price\' in table \'cart\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecart.priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int total {
+                get {
+                    try {
+                        return ((int)(this[this.tablecart.totalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'total\' in table \'cart\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablecart.totalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsnameNull() {
+                return this.IsNull(this.tablecart.nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetnameNull() {
+                this[this.tablecart.nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsquantityNull() {
+                return this.IsNull(this.tablecart.quantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetquantityNull() {
+                this[this.tablecart.quantityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsmonthNull() {
+                return this.IsNull(this.tablecart.monthColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetmonthNull() {
+                this[this.tablecart.monthColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IspriceNull() {
+                return this.IsNull(this.tablecart.priceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetpriceNull() {
+                this[this.tablecart.priceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstotalNull() {
+                return this.IsNull(this.tablecart.totalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettotalNull() {
+                this[this.tablecart.totalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1808,22 +1890,22 @@ namespace a_home_appliance_rental_application {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class administratorRowChangeEvent : global::System.EventArgs {
+        public class applianceRowChangeEvent : global::System.EventArgs {
             
-            private administratorRow eventRow;
+            private applianceRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public administratorRowChangeEvent(administratorRow row, global::System.Data.DataRowAction action) {
+            public applianceRowChangeEvent(applianceRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public administratorRow Row {
+            public applianceRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1842,22 +1924,22 @@ namespace a_home_appliance_rental_application {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class applianceRowChangeEvent : global::System.EventArgs {
+        public class cartRowChangeEvent : global::System.EventArgs {
             
-            private applianceRow eventRow;
+            private cartRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public applianceRowChangeEvent(applianceRow row, global::System.Data.DataRowAction action) {
+            public cartRowChangeEvent(cartRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public applianceRow Row {
+            public cartRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1907,459 +1989,8 @@ namespace a_home_appliance_rental_application {
         }
     }
 }
-namespace a_home_appliance_rental_application.a_home_appliance_rental_application_databaseTableAdapters {
+namespace a_home_appliance_rental_application.a_home_appliance_rental_applicationDataSetTableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class administratorTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
-        
-        private global::System.Data.OleDb.OleDbConnection _connection;
-        
-        private global::System.Data.OleDb.OleDbTransaction _transaction;
-        
-        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public administratorTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.OleDb.OleDbConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.OleDb.OleDbTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "administrator";
-            tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("name", "name");
-            tableMapping.ColumnMappings.Add("address", "address");
-            tableMapping.ColumnMappings.Add("password", "password");
-            tableMapping.ColumnMappings.Add("phoneNumber", "phoneNumber");
-            tableMapping.ColumnMappings.Add("email", "email");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `administrator` WHERE ((`ID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `address` IS NULL) OR (`address` = ?)) AND ((? = 1 AND `password` IS NULL) OR (`password` = ?)) AND ((? = 1 AND `phoneNumber` IS NULL) OR (`phoneNumber` = ?)) AND ((? = 1 AND `email` IS NULL) OR (`email` = ?)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_address", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_address", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_password", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_password", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_phoneNumber", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phoneNumber", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_phoneNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phoneNumber", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_email", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "email", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_email", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "email", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `administrator` (`name`, `address`, `password`, `phoneNumber`, `email" +
-                "`) VALUES (?, ?, ?, ?, ?)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("address", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("password", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("phoneNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phoneNumber", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("email", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "email", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `administrator` SET `name` = ?, `address` = ?, `password` = ?, `phoneNumber` = ?, `email` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `address` IS NULL) OR (`address` = ?)) AND ((? = 1 AND `password` IS NULL) OR (`password` = ?)) AND ((? = 1 AND `phoneNumber` IS NULL) OR (`phoneNumber` = ?)) AND ((? = 1 AND `email` IS NULL) OR (`email` = ?)))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("address", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("password", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("phoneNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phoneNumber", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("email", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "email", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_address", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_address", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "address", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_password", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_password", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "password", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_phoneNumber", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phoneNumber", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_phoneNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "phoneNumber", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_email", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "email", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_email", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "email", global::System.Data.DataRowVersion.Original, false, null));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::a_home_appliance_rental_application.Properties.Settings.Default.a_home_appliance_rental_applicationConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
-            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, name, address, [password], phoneNumber, email FROM administrator";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(a_home_appliance_rental_application_database.administratorDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual a_home_appliance_rental_application_database.administratorDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            a_home_appliance_rental_application_database.administratorDataTable dataTable = new a_home_appliance_rental_application_database.administratorDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(a_home_appliance_rental_application_database.administratorDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(a_home_appliance_rental_application_database dataSet) {
-            return this.Adapter.Update(dataSet, "administrator");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_name, string Original_address, string Original_password, string Original_phoneNumber, string Original_email) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            if ((Original_name == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_name));
-            }
-            if ((Original_address == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_address));
-            }
-            if ((Original_password == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_password));
-            }
-            if ((Original_phoneNumber == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_phoneNumber));
-            }
-            if ((Original_email == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_email));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string name, string address, string password, string phoneNumber, string email) {
-            if ((name == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(name));
-            }
-            if ((address == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(address));
-            }
-            if ((password == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(password));
-            }
-            if ((phoneNumber == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(phoneNumber));
-            }
-            if ((email == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(email));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, string address, string password, string phoneNumber, string email, int Original_ID, string Original_name, string Original_address, string Original_password, string Original_phoneNumber, string Original_email) {
-            if ((name == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(name));
-            }
-            if ((address == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(address));
-            }
-            if ((password == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(password));
-            }
-            if ((phoneNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(phoneNumber));
-            }
-            if ((email == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(email));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID));
-            if ((Original_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_name));
-            }
-            if ((Original_address == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_address));
-            }
-            if ((Original_password == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_password));
-            }
-            if ((Original_phoneNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_phoneNumber));
-            }
-            if ((Original_email == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_email));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -2487,10 +2118,12 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
             tableMapping.ColumnMappings.Add("powerUsage", "powerUsage");
             tableMapping.ColumnMappings.Add("typicalUsage", "typicalUsage");
             tableMapping.ColumnMappings.Add("runningCost", "runningCost");
+            tableMapping.ColumnMappings.Add("type", "type");
+            tableMapping.ColumnMappings.Add("Description", "Description");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `appliance` WHERE ((`ID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `powerUsage` IS NULL) OR (`powerUsage` = ?)) AND ((? = 1 AND `typicalUsage` IS NULL) OR (`typicalUsage` = ?)) AND ((? = 1 AND `runningCost` IS NULL) OR (`runningCost` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `appliance` WHERE ((`ID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `powerUsage` IS NULL) OR (`powerUsage` = ?)) AND ((? = 1 AND `typicalUsage` IS NULL) OR (`typicalUsage` = ?)) AND ((? = 1 AND `runningCost` IS NULL) OR (`runningCost` = ?)) AND ((? = 1 AND `type` IS NULL) OR (`type` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, true, null));
@@ -2501,23 +2134,29 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_typicalUsage", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "typicalUsage", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_runningCost", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "runningCost", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_runningCost", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "runningCost", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_type", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "type", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_type", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "type", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `appliance` (`name`, `powerUsage`, `typicalUsage`, `runningCost`) VAL" +
-                "UES (?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `appliance` (`name`, `powerUsage`, `typicalUsage`, `runningCost`, `ty" +
+                "pe`, `Description`) VALUES (?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("powerUsage", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "powerUsage", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("typicalUsage", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "typicalUsage", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("runningCost", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "runningCost", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("type", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "type", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Description", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Description", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `appliance` SET `name` = ?, `powerUsage` = ?, `typicalUsage` = ?, `runningCost` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `powerUsage` IS NULL) OR (`powerUsage` = ?)) AND ((? = 1 AND `typicalUsage` IS NULL) OR (`typicalUsage` = ?)) AND ((? = 1 AND `runningCost` IS NULL) OR (`runningCost` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `appliance` SET `name` = ?, `powerUsage` = ?, `typicalUsage` = ?, `runningCost` = ?, `type` = ?, `Description` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `powerUsage` IS NULL) OR (`powerUsage` = ?)) AND ((? = 1 AND `typicalUsage` IS NULL) OR (`typicalUsage` = ?)) AND ((? = 1 AND `runningCost` IS NULL) OR (`runningCost` = ?)) AND ((? = 1 AND `type` IS NULL) OR (`type` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("powerUsage", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "powerUsage", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("typicalUsage", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "typicalUsage", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("runningCost", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "runningCost", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("type", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "type", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Description", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Description", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
@@ -2527,6 +2166,8 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_typicalUsage", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "typicalUsage", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_runningCost", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "runningCost", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_runningCost", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "runningCost", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_type", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "type", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_type", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "type", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2542,7 +2183,8 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, name, powerUsage, typicalUsage, runningCost FROM appliance";
+            this._commandCollection[0].CommandText = "SELECT ID, name, powerUsage, typicalUsage, runningCost, type, Description FROM ap" +
+                "pliance";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2550,7 +2192,7 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(a_home_appliance_rental_application_database.applianceDataTable dataTable) {
+        public virtual int Fill(a_home_appliance_rental_applicationDataSet.applianceDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2563,9 +2205,9 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual a_home_appliance_rental_application_database.applianceDataTable GetData() {
+        public virtual a_home_appliance_rental_applicationDataSet.applianceDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            a_home_appliance_rental_application_database.applianceDataTable dataTable = new a_home_appliance_rental_application_database.applianceDataTable();
+            a_home_appliance_rental_applicationDataSet.applianceDataTable dataTable = new a_home_appliance_rental_applicationDataSet.applianceDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2573,14 +2215,14 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(a_home_appliance_rental_application_database.applianceDataTable dataTable) {
+        public virtual int Update(a_home_appliance_rental_applicationDataSet.applianceDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(a_home_appliance_rental_application_database dataSet) {
+        public virtual int Update(a_home_appliance_rental_applicationDataSet dataSet) {
             return this.Adapter.Update(dataSet, "appliance");
         }
         
@@ -2603,7 +2245,7 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_name, string Original_powerUsage, string Original_typicalUsage, global::System.Nullable<decimal> Original_runningCost) {
+        public virtual int Delete(int Original_ID, string Original_name, string Original_powerUsage, string Original_typicalUsage, global::System.Nullable<decimal> Original_runningCost, string Original_type) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_name == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -2637,6 +2279,14 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
+            if ((Original_type == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_type));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2657,7 +2307,7 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string name, string powerUsage, string typicalUsage, global::System.Nullable<decimal> runningCost) {
+        public virtual int Insert(string name, string powerUsage, string typicalUsage, global::System.Nullable<decimal> runningCost, string type, string Description) {
             if ((name == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2682,6 +2332,18 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
+            if ((type == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(type));
+            }
+            if ((Description == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Description));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2702,7 +2364,7 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, string powerUsage, string typicalUsage, global::System.Nullable<decimal> runningCost, int Original_ID, string Original_name, string Original_powerUsage, string Original_typicalUsage, global::System.Nullable<decimal> Original_runningCost) {
+        public virtual int Update(string name, string powerUsage, string typicalUsage, global::System.Nullable<decimal> runningCost, string type, string Description, int Original_ID, string Original_name, string Original_powerUsage, string Original_typicalUsage, global::System.Nullable<decimal> Original_runningCost, string Original_type) {
             if ((name == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2727,38 +2389,509 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID));
-            if ((Original_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((type == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(type));
             }
-            if ((Original_powerUsage == null)) {
+            if ((Description == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Description));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_ID));
+            if ((Original_name == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_powerUsage));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_name));
             }
-            if ((Original_typicalUsage == null)) {
+            if ((Original_powerUsage == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_typicalUsage));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_powerUsage));
             }
-            if ((Original_runningCost.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(Original_runningCost.Value));
-            }
-            else {
+            if ((Original_typicalUsage == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_typicalUsage));
+            }
+            if ((Original_runningCost.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_runningCost.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_type == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_type));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class cartTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public cartTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "cart";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("name", "name");
+            tableMapping.ColumnMappings.Add("quantity", "quantity");
+            tableMapping.ColumnMappings.Add("month", "month");
+            tableMapping.ColumnMappings.Add("price", "price");
+            tableMapping.ColumnMappings.Add("total", "total");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `cart` WHERE ((`ID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `quantity` IS NULL) OR (`quantity` = ?)) AND ((? = 1 AND `month` IS NULL) OR (`month` = ?)) AND ((? = 1 AND `price` IS NULL) OR (`price` = ?)) AND ((? = 1 AND `total` IS NULL) OR (`total` = ?)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_quantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quantity", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_quantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quantity", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_month", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "month", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_month", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "month", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_price", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_price", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_total", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "total", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_total", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "total", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `cart` (`name`, `quantity`, `month`, `price`, `total`) VALUES (?, ?, " +
+                "?, ?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("quantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quantity", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("month", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "month", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("price", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("total", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "total", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `cart` SET `name` = ?, `quantity` = ?, `month` = ?, `price` = ?, `total` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `quantity` IS NULL) OR (`quantity` = ?)) AND ((? = 1 AND `month` IS NULL) OR (`month` = ?)) AND ((? = 1 AND `price` IS NULL) OR (`price` = ?)) AND ((? = 1 AND `total` IS NULL) OR (`total` = ?)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("quantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quantity", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("month", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "month", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("price", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("total", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "total", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_quantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quantity", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_quantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "quantity", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_month", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "month", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_month", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "month", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_price", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_price", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "price", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_total", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "total", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_total", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "total", global::System.Data.DataRowVersion.Original, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::a_home_appliance_rental_application.Properties.Settings.Default.a_home_appliance_rental_applicationConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ID, name, quantity, [month], price, total FROM cart";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(a_home_appliance_rental_applicationDataSet.cartDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual a_home_appliance_rental_applicationDataSet.cartDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            a_home_appliance_rental_applicationDataSet.cartDataTable dataTable = new a_home_appliance_rental_applicationDataSet.cartDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(a_home_appliance_rental_applicationDataSet.cartDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(a_home_appliance_rental_applicationDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "cart");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_ID, string Original_name, global::System.Nullable<int> Original_quantity, global::System.Nullable<int> Original_month, global::System.Nullable<int> Original_price, global::System.Nullable<int> Original_total) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
+            if ((Original_name == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_name));
+            }
+            if ((Original_quantity.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_quantity.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_month.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_month.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_price.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_price.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_total.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_total.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string name, global::System.Nullable<int> quantity, global::System.Nullable<int> month, global::System.Nullable<int> price, global::System.Nullable<int> total) {
+            if ((name == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(name));
+            }
+            if ((quantity.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(quantity.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((month.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(month.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((price.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(price.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((total.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(total.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string name, global::System.Nullable<int> quantity, global::System.Nullable<int> month, global::System.Nullable<int> price, global::System.Nullable<int> total, int Original_ID, string Original_name, global::System.Nullable<int> Original_quantity, global::System.Nullable<int> Original_month, global::System.Nullable<int> Original_price, global::System.Nullable<int> Original_total) {
+            if ((name == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(name));
+            }
+            if ((quantity.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(quantity.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((month.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(month.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((price.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(price.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((total.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(total.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID));
+            if ((Original_name == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_name));
+            }
+            if ((Original_quantity.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_quantity.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Original_month.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_month.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_price.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_price.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((Original_total.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_total.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2973,7 +3106,7 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(a_home_appliance_rental_application_database.userDataTable dataTable) {
+        public virtual int Fill(a_home_appliance_rental_applicationDataSet.userDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2986,9 +3119,9 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual a_home_appliance_rental_application_database.userDataTable GetData() {
+        public virtual a_home_appliance_rental_applicationDataSet.userDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            a_home_appliance_rental_application_database.userDataTable dataTable = new a_home_appliance_rental_application_database.userDataTable();
+            a_home_appliance_rental_applicationDataSet.userDataTable dataTable = new a_home_appliance_rental_applicationDataSet.userDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2996,14 +3129,14 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(a_home_appliance_rental_application_database.userDataTable dataTable) {
+        public virtual int Update(a_home_appliance_rental_applicationDataSet.userDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(a_home_appliance_rental_application_database dataSet) {
+        public virtual int Update(a_home_appliance_rental_applicationDataSet dataSet) {
             return this.Adapter.Update(dataSet, "user");
         }
         
@@ -3240,9 +3373,9 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         
         private UpdateOrderOption _updateOrder;
         
-        private administratorTableAdapter _administratorTableAdapter;
-        
         private applianceTableAdapter _applianceTableAdapter;
+        
+        private cartTableAdapter _cartTableAdapter;
         
         private userTableAdapter _userTableAdapter;
         
@@ -3266,12 +3399,12 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public administratorTableAdapter administratorTableAdapter {
+        public applianceTableAdapter applianceTableAdapter {
             get {
-                return this._administratorTableAdapter;
+                return this._applianceTableAdapter;
             }
             set {
-                this._administratorTableAdapter = value;
+                this._applianceTableAdapter = value;
             }
         }
         
@@ -3280,12 +3413,12 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public applianceTableAdapter applianceTableAdapter {
+        public cartTableAdapter cartTableAdapter {
             get {
-                return this._applianceTableAdapter;
+                return this._cartTableAdapter;
             }
             set {
-                this._applianceTableAdapter = value;
+                this._cartTableAdapter = value;
             }
         }
         
@@ -3322,13 +3455,13 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._administratorTableAdapter != null) 
-                            && (this._administratorTableAdapter.Connection != null))) {
-                    return this._administratorTableAdapter.Connection;
-                }
                 if (((this._applianceTableAdapter != null) 
                             && (this._applianceTableAdapter.Connection != null))) {
                     return this._applianceTableAdapter.Connection;
+                }
+                if (((this._cartTableAdapter != null) 
+                            && (this._cartTableAdapter.Connection != null))) {
+                    return this._cartTableAdapter.Connection;
                 }
                 if (((this._userTableAdapter != null) 
                             && (this._userTableAdapter.Connection != null))) {
@@ -3347,10 +3480,10 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._administratorTableAdapter != null)) {
+                if ((this._applianceTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._applianceTableAdapter != null)) {
+                if ((this._cartTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._userTableAdapter != null)) {
@@ -3365,23 +3498,23 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(a_home_appliance_rental_application_database dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(a_home_appliance_rental_applicationDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._administratorTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.administrator.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._administratorTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._applianceTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.appliance.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._applianceTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cartTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.cart.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cartTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -3402,21 +3535,21 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(a_home_appliance_rental_application_database dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(a_home_appliance_rental_applicationDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._administratorTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.administrator.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._administratorTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._applianceTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.appliance.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._applianceTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cartTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.cart.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cartTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -3436,7 +3569,7 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(a_home_appliance_rental_application_database dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(a_home_appliance_rental_applicationDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._userTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.user.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -3446,19 +3579,19 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._cartTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.cart.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._cartTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._applianceTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.appliance.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._applianceTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._administratorTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.administrator.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._administratorTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -3494,20 +3627,20 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(a_home_appliance_rental_application_database dataSet) {
+        public virtual int UpdateAll(a_home_appliance_rental_applicationDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._administratorTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._administratorTableAdapter.Connection) == false))) {
+            if (((this._applianceTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._applianceTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._applianceTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._applianceTableAdapter.Connection) == false))) {
+            if (((this._cartTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._cartTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -3548,15 +3681,6 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._administratorTableAdapter != null)) {
-                    revertConnections.Add(this._administratorTableAdapter, this._administratorTableAdapter.Connection);
-                    this._administratorTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._administratorTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
-                    if (this._administratorTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._administratorTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._administratorTableAdapter.Adapter);
-                    }
-                }
                 if ((this._applianceTableAdapter != null)) {
                     revertConnections.Add(this._applianceTableAdapter, this._applianceTableAdapter.Connection);
                     this._applianceTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
@@ -3564,6 +3688,15 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
                     if (this._applianceTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._applianceTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._applianceTableAdapter.Adapter);
+                    }
+                }
+                if ((this._cartTableAdapter != null)) {
+                    revertConnections.Add(this._cartTableAdapter, this._cartTableAdapter.Connection);
+                    this._cartTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
+                    this._cartTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    if (this._cartTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._cartTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._cartTableAdapter.Adapter);
                     }
                 }
                 if ((this._userTableAdapter != null)) {
@@ -3633,13 +3766,13 @@ namespace a_home_appliance_rental_application.a_home_appliance_rental_applicatio
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._administratorTableAdapter != null)) {
-                    this._administratorTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._administratorTableAdapter]));
-                    this._administratorTableAdapter.Transaction = null;
-                }
                 if ((this._applianceTableAdapter != null)) {
                     this._applianceTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._applianceTableAdapter]));
                     this._applianceTableAdapter.Transaction = null;
+                }
+                if ((this._cartTableAdapter != null)) {
+                    this._cartTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._cartTableAdapter]));
+                    this._cartTableAdapter.Transaction = null;
                 }
                 if ((this._userTableAdapter != null)) {
                     this._userTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._userTableAdapter]));

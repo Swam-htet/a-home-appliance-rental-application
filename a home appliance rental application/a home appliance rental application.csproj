@@ -60,10 +60,10 @@
     <Compile Include="admin_page.Designer.cs">
       <DependentUpon>admin_page.cs</DependentUpon>
     </Compile>
-    <Compile Include="a_home_appliance_rental_application_database.Designer.cs">
+    <Compile Include="a_home_appliance_rental_applicationDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>a_home_appliance_rental_application_database.xsd</DependentUpon>
+      <DependentUpon>a_home_appliance_rental_applicationDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="delete item.cs">
       <SubType>Form</SubType>
@@ -128,16 +128,16 @@
     <EmbeddedResource Include="user page.resx">
       <DependentUpon>user page.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="a_home_appliance_rental_application_database.xsc">
-      <DependentUpon>a_home_appliance_rental_application_database.xsd</DependentUpon>
+    <None Include="a_home_appliance_rental_applicationDataSet.xsc">
+      <DependentUpon>a_home_appliance_rental_applicationDataSet.xsd</DependentUpon>
     </None>
-    <None Include="a_home_appliance_rental_application_database.xsd">
+    <None Include="a_home_appliance_rental_applicationDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>a_home_appliance_rental_application_database.Designer.cs</LastGenOutput>
+      <LastGenOutput>a_home_appliance_rental_applicationDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="a_home_appliance_rental_application_database.xss">
-      <DependentUpon>a_home_appliance_rental_application_database.xsd</DependentUpon>
+    <None Include="a_home_appliance_rental_applicationDataSet.xss">
+      <DependentUpon>a_home_appliance_rental_applicationDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

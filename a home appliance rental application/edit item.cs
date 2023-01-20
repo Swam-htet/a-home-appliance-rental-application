@@ -29,24 +29,9 @@ namespace a_home_appliance_rental_application
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            // input string
-            int searchID = Int32.Parse(inputSearch.Text);
-            string change = inputChange.Text;
-            string choose = inputChoose.Text;
+            
 
-            // query string 
-            string edit_query = String.Format("update `appliance` set '"+choose+"' = `" + change + "` where `id` = '" + searchID + "'");
-
-            // updating the item data from the database
-            cmd = new OleDbCommand(edit_query, connect);
-            ad = new OleDbDataAdapter(cmd);
-            dt = new DataTable();
-
-            ad.Fill(dt);
-            ad.Update(dt);
-            MessageBox.Show("Editing the appliance Successful");
-
-            this.Close();
+            
         }
     }
 }
