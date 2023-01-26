@@ -57,13 +57,13 @@
             this.userDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userDisplay.Location = new System.Drawing.Point(67, 129);
             this.userDisplay.Name = "userDisplay";
-            this.userDisplay.Size = new System.Drawing.Size(944, 310);
+            this.userDisplay.Size = new System.Drawing.Size(770, 310);
             this.userDisplay.TabIndex = 0;
             this.userDisplay.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.userDisplay_CellEnter);
             // 
             // btnDisplay
             // 
-            this.btnDisplay.Location = new System.Drawing.Point(1039, 86);
+            this.btnDisplay.Location = new System.Drawing.Point(868, 135);
             this.btnDisplay.Name = "btnDisplay";
             this.btnDisplay.Size = new System.Drawing.Size(92, 48);
             this.btnDisplay.TabIndex = 1;
@@ -73,7 +73,7 @@
             // 
             // btnSort
             // 
-            this.btnSort.Location = new System.Drawing.Point(1039, 159);
+            this.btnSort.Location = new System.Drawing.Point(868, 208);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(92, 48);
             this.btnSort.TabIndex = 2;
@@ -83,7 +83,7 @@
             // 
             // btnCart
             // 
-            this.btnCart.Location = new System.Drawing.Point(264, 666);
+            this.btnCart.Location = new System.Drawing.Point(234, 667);
             this.btnCart.Name = "btnCart";
             this.btnCart.Size = new System.Drawing.Size(92, 37);
             this.btnCart.TabIndex = 3;
@@ -105,7 +105,7 @@
             // 
             this.userHeader.AutoSize = true;
             this.userHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userHeader.Location = new System.Drawing.Point(495, 23);
+            this.userHeader.Location = new System.Drawing.Point(414, 20);
             this.userHeader.Name = "userHeader";
             this.userHeader.Size = new System.Drawing.Size(319, 31);
             this.userHeader.TabIndex = 5;
@@ -113,9 +113,9 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(842, 76);
+            this.btnSearch.Location = new System.Drawing.Point(739, 75);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(98, 28);
+            this.btnSearch.Size = new System.Drawing.Size(98, 42);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Search with type";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -123,7 +123,7 @@
             // 
             // btnTotal
             // 
-            this.btnTotal.Location = new System.Drawing.Point(264, 723);
+            this.btnTotal.Location = new System.Drawing.Point(234, 724);
             this.btnTotal.Name = "btnTotal";
             this.btnTotal.Size = new System.Drawing.Size(92, 38);
             this.btnTotal.TabIndex = 9;
@@ -140,7 +140,7 @@
             "personal use",
             "entertainment use",
             "excavation tool"});
-            this.inputSearch.Location = new System.Drawing.Point(690, 81);
+            this.inputSearch.Location = new System.Drawing.Point(587, 81);
             this.inputSearch.Name = "inputSearch";
             this.inputSearch.Size = new System.Drawing.Size(146, 21);
             this.inputSearch.TabIndex = 10;
@@ -148,9 +148,9 @@
             // cart_table
             // 
             this.cart_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cart_table.Location = new System.Drawing.Point(392, 472);
+            this.cart_table.Location = new System.Drawing.Point(356, 472);
             this.cart_table.Name = "cart_table";
-            this.cart_table.Size = new System.Drawing.Size(823, 315);
+            this.cart_table.Size = new System.Drawing.Size(623, 315);
             this.cart_table.TabIndex = 11;
             // 
             // label1
@@ -167,7 +167,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(199, 474);
+            this.label2.Location = new System.Drawing.Point(169, 475);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(157, 26);
             this.label2.TabIndex = 13;
@@ -176,7 +176,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(134, 534);
+            this.label3.Location = new System.Drawing.Point(104, 535);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 14;
@@ -185,7 +185,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(102, 626);
+            this.label4.Location = new System.Drawing.Point(72, 627);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 13);
             this.label4.TabIndex = 14;
@@ -193,7 +193,7 @@
             // 
             // inputCartDuration
             // 
-            this.inputCartDuration.Location = new System.Drawing.Point(227, 623);
+            this.inputCartDuration.Location = new System.Drawing.Point(197, 624);
             this.inputCartDuration.Name = "inputCartDuration";
             this.inputCartDuration.Size = new System.Drawing.Size(129, 20);
             this.inputCartDuration.TabIndex = 15;
@@ -201,7 +201,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(155, 595);
+            this.label5.Location = new System.Drawing.Point(125, 596);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 14;
@@ -209,7 +209,7 @@
             // 
             // inputCartQuantity
             // 
-            this.inputCartQuantity.Location = new System.Drawing.Point(227, 588);
+            this.inputCartQuantity.Location = new System.Drawing.Point(197, 589);
             this.inputCartQuantity.Name = "inputCartQuantity";
             this.inputCartQuantity.Size = new System.Drawing.Size(129, 20);
             this.inputCartQuantity.TabIndex = 15;
@@ -217,7 +217,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(170, 561);
+            this.label6.Location = new System.Drawing.Point(140, 562);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 14;
@@ -226,7 +226,7 @@
             // inputCartID
             // 
             this.inputCartID.AutoSize = true;
-            this.inputCartID.Location = new System.Drawing.Point(235, 534);
+            this.inputCartID.Location = new System.Drawing.Point(205, 535);
             this.inputCartID.Name = "inputCartID";
             this.inputCartID.Size = new System.Drawing.Size(35, 13);
             this.inputCartID.TabIndex = 16;
@@ -235,7 +235,7 @@
             // InputCartPrice
             // 
             this.InputCartPrice.AutoSize = true;
-            this.InputCartPrice.Location = new System.Drawing.Point(236, 562);
+            this.InputCartPrice.Location = new System.Drawing.Point(206, 563);
             this.InputCartPrice.Name = "InputCartPrice";
             this.InputCartPrice.Size = new System.Drawing.Size(35, 13);
             this.InputCartPrice.TabIndex = 17;
@@ -245,7 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 810);
+            this.ClientSize = new System.Drawing.Size(1018, 810);
             this.Controls.Add(this.InputCartPrice);
             this.Controls.Add(this.inputCartID);
             this.Controls.Add(this.inputCartQuantity);

@@ -42,17 +42,14 @@ namespace a_home_appliance_rental_application
             new login().Show();
         }
 
-        // form load
+        // user page load
         private void user_page_Load(object sender, EventArgs e)
         {
             displayItem();
-
             displayCart();
-
-
         }
 
-        // display cart
+        // display cart function
         private void displayCart()
         {
             string display_string = String.Format("select * from `cart`;");
@@ -80,7 +77,6 @@ namespace a_home_appliance_rental_application
             displayItem();
         }
 
-       
         // sort item with energy consumption 
         private void btnSort_Click(object sender, EventArgs e)
         {
@@ -92,11 +88,13 @@ namespace a_home_appliance_rental_application
             userDisplay.DataSource = dt;
         }
 
-
         // search item with type 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            // combo box
             string search_item_type = inputSearch.Text;
+
+            // query string
             string search_item_query = String.Format("select * from `appliance` where `type` = '{0}';",search_item_type);
             cmd = new OleDbCommand(search_item_query, connect);
             ad = new OleDbDataAdapter(cmd);
@@ -107,7 +105,7 @@ namespace a_home_appliance_rental_application
 
         }
 
-
+        // clear cart function 
         private void clearCart()
         {
             // query string 
@@ -121,7 +119,6 @@ namespace a_home_appliance_rental_application
             ad.Update(dt);
 
         }
-
 
         // add to the shopping cart button
         private void btnCart_Click(object sender, EventArgs e)
@@ -146,7 +143,7 @@ namespace a_home_appliance_rental_application
             displayCart();
         }
 
-        // calculate total price 
+        // calculate total charge button
         private void btn_calculate_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Total charge : " + total_charge);

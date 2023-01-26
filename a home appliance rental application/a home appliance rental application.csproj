@@ -65,18 +65,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>a_home_appliance_rental_applicationDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="delete item.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="delete item.Designer.cs">
-      <DependentUpon>delete item.cs</DependentUpon>
-    </Compile>
-    <Compile Include="edit item.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="edit item.Designer.cs">
-      <DependentUpon>edit item.cs</DependentUpon>
-    </Compile>
     <Compile Include="registration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,12 +91,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="admin_page.resx">
       <DependentUpon>admin_page.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="delete item.resx">
-      <DependentUpon>delete item.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="edit item.resx">
-      <DependentUpon>edit item.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="registration.resx">
       <DependentUpon>registration.cs</DependentUpon>

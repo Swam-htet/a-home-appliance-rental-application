@@ -29,7 +29,7 @@ namespace a_home_appliance_rental_application
             InitializeComponent();
         }
 
-        // form load 
+        // login page load
         private void login_Load(object sender, EventArgs e)
         {
             admin = new Adminuser("Swam Htet", "rocket100", "swamhtet129@gmail.com", "+959900400200", "Shwebo, Sagaing");
@@ -55,22 +55,8 @@ namespace a_home_appliance_rental_application
                     this.Hide();
                     new admin_page().Show();
                 }
-                /*
-                // check admin from the database
-                string check_admin_query = String.Format("select `name`,`password` from `administrator` where `name` = '" + inputUsername.Text + "' and `password` = '" + inputPassword.Text + "'");
-
-                cmd = new OleDbCommand(check_admin_query, connect);
-                ad = new OleDbDataAdapter(cmd);
-                dt = new DataTable();
-                ad.Fill(dt);
-                if (dt.Rows.Count > 0)
-                {
-                    // login successful
-                    // MessageBox.Show("Admin Login Successful.");
-                    this.Hide();
-                    new admin_page().Show();
-                }
-                */
+                
+                // admin login fail
                 else
                 {
                     MessageBox.Show("Admin input fail.");
@@ -96,7 +82,7 @@ namespace a_home_appliance_rental_application
                 }
                 else
                 {
-                    // fail login 
+                    // user fail login 
                     MessageBox.Show("There is no match account in the list.");
                 }
             }
@@ -104,7 +90,7 @@ namespace a_home_appliance_rental_application
         }
 
         
-        // click register button to open registration page 
+        // click register button
         private void btnRegister_Click(object sender, EventArgs e)
         {
             this.Hide();

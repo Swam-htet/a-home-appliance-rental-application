@@ -32,9 +32,6 @@ namespace a_home_appliance_rental_application
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            
-
-
             // input strings
             string name = inputName.Text;
             string power = inputPower.Text;

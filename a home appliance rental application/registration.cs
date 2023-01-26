@@ -29,7 +29,7 @@ namespace a_home_appliance_rental_application
             InitializeComponent();
         }
 
-        // form load function 
+        // registration page load
         private void registration_Load(object sender, EventArgs e)
         {
         }
@@ -48,7 +48,6 @@ namespace a_home_appliance_rental_application
             return false;
         }
 
-        
         // email validation 
         private Boolean emailvalidation(string email)
         {
@@ -97,8 +96,6 @@ namespace a_home_appliance_rental_application
             return false;
         }
 
-        
-
         // create user account button
         private void btnCreate_Click(object sender, EventArgs e)
         {
@@ -110,15 +107,9 @@ namespace a_home_appliance_rental_application
             string phNo = inputPhNo.Text;
             string address = inputAddress.Text;
 
-            
-
-
             // passed validation 
             if (userNameValidation(name) == true && emailvalidation(email) == true && phNovalidation(phNo) == true && passwordValidation(pw, conFirmPw) == true && address != "")
             {
-                // create new user object 
-                User add = new NormalUser(name, pw, email, phNo,address);
-
                 // add the use to the database
                 string create_user_query = String.Format("insert into `user` (`name`,`Password`,`address`,`email`,`phoneNumber`) values ('{0}','{1}','{2}','{3}','{4}');",name,pw,address,email,phNo);
 
@@ -130,7 +121,6 @@ namespace a_home_appliance_rental_application
                 ad = new OleDbDataAdapter(cmd);
                 dt = new DataTable();
                 ad.Fill(dt);
-
 
                 if (dt.Rows.Count == 0)
                 {
@@ -146,10 +136,6 @@ namespace a_home_appliance_rental_application
                     // open user page
                     this.Hide();
                     new user_page().Show();
-
-                    // open user page
-                    this.Hide();
-                    new user_page().Show();
                 }
                 else
                 { 
@@ -161,7 +147,6 @@ namespace a_home_appliance_rental_application
             // fail validation
             else
             {
-                
                 MessageBox.Show("Please check user input details.");
             }
             
